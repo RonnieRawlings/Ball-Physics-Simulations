@@ -9,10 +9,11 @@ public class BallForce : MonoBehaviour
     // Power behind the bounce on collision.
     [SerializeField] private float bounceForce;
 
-    // Chosen audio clip.
-    [SerializeField] private AudioClip audioClip;
+    // Chosen audio clips.
+    [SerializeField] private AudioClip[] audioClips;
+    private int currentClip;
 
-    // Camera audio source.
+    // Camera audio source.?
     private AudioSource cameraAudio;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -31,8 +32,12 @@ public class BallForce : MonoBehaviour
         // Increase scale of obj.
         IncreaseScale();
 
-        // Plays audio.
-        cameraAudio.PlayOneShot(audioClip);
+        // Resets to start if at end.
+        if (currentClip == audioClips.Length) { currentClip = 0; }
+
+        // Increments int, plays audio.
+        cameraAudio.PlayOneShot(audioClips[currentClip]);
+        currentClip++;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
