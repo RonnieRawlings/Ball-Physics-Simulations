@@ -66,6 +66,9 @@ public class Settings : MonoBehaviour
 
             // Change to final position.
             simPoints[simPoints.Count - 1].transform.position = newPosition;
+
+            // Increases max cam scroll.
+            IncreaseMaxCameraScroll();
         }
 
         // Moves each sim at relevant position.
@@ -73,5 +76,13 @@ public class Settings : MonoBehaviour
         {
             sceneSimulations[s].transform.position = simPoints[s].transform.position;
         }
+    }
+
+    /// <summary> method <c>IncreaseMaxCameraScroll</c> increases the max Y the camera can move, found by max simulation. </summary>
+    public void IncreaseMaxCameraScroll()
+    {
+        // Finds cam comp, adjusts maxY.
+        CameraScroll mainCamScroll = Camera.main.GetComponent<CameraScroll>();
+        mainCamScroll.MaxY = simPoints[simPoints.Count - 1].transform.position.y;
     }
 }
