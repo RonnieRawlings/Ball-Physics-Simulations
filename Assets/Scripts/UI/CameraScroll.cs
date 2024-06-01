@@ -28,8 +28,6 @@ public class CameraScroll : MonoBehaviour
     /// <param name="value">Current ScrollBar pos value.</param>
     void ScrollCamera(float value)
     {
-        Debug.Log(maxY);
-
         // Gets current pos.
         Vector3 newPosition = transform.position;
 
