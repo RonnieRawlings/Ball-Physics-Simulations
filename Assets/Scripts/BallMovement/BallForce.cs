@@ -9,11 +9,12 @@ public class BallForce : MonoBehaviour
     // Power behind the bounce on collision.
     [SerializeField] private float bounceForce;
 
-    // Chosen audio clip.
-    [SerializeField] private AudioClip audioClip;
+    // Chosen audio clips.
+    [SerializeField] private AudioClip[] audioClips;
+    private int currentClip;
 
     // Camera audio source.
-    private AudioSource cameraAudio;
+    private AudioSource audioSource;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,14 +32,32 @@ public class BallForce : MonoBehaviour
         // Increase scale of obj.
         IncreaseScale();
 
-        // Plays audio.
-        cameraAudio.PlayOneShot(audioClip);
+        // Resets to start if at end.
+        if (currentClip == audioClips.Length) { currentClip = 0; }
+
+        // Increments int, plays audio.
+        audioSource.PlayOneShot(audioClips[currentClip]);
+        currentClip++;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         // Destroy circle if ball exited.
-        if (collision.CompareTag("Exit")) { Destroy(collision.transform.parent.gameObject); }
+        if (collision.CompareTag("Exit"))
+        {
+            Transform parent = collision.transform.parent.parent;
+            int nextSiblingIndex = collision.transform.parent.GetSiblingIndex() + 1;
+
+            // Only tries to enable collider if has a higher sibling.
+            if (nextSiblingIndex < parent.childCount)
+            {
+                // Enable sibling collider.
+                parent.GetChild(nextSiblingIndex).GetComponent<PolygonCollider2D>().enabled = true;
+            }
+
+            // Destroy escaped obj.
+            Destroy(collision.transform.parent.gameObject);
+        }
     }
 
     /// <summary> method <c>IncreaseScale</c> exponentially increases the objects size. </summary>
@@ -51,6 +70,6 @@ public class BallForce : MonoBehaviour
     void Awake()
     {
         // Finds camera audio comp.
-        cameraAudio = Camera.main.GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 }
