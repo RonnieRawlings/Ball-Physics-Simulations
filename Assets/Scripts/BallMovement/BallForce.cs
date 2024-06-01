@@ -16,6 +16,24 @@ public class BallForce : MonoBehaviour
     // Camera audio source.
     private AudioSource audioSource;
 
+    // Should increase scale.
+    [SerializeField] private bool increaseScale, spawnNewBalls;
+
+    #region Properties
+
+    public bool SpawnNewBalls
+    {
+        set { spawnNewBalls = value; }
+    }
+
+    public AudioClip[] AudioClips
+    {
+        get { return audioClips; }
+        set { audioClips = value; }
+    }
+
+    #endregion
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Get rigidbody comp & collision contact.
@@ -30,7 +48,7 @@ public class BallForce : MonoBehaviour
         rb.AddForce(collisionNormal * finalForce, ForceMode2D.Impulse);
 
         // Increase scale of obj.
-        IncreaseScale();
+        if (increaseScale) { IncreaseScale(); }
 
         // Resets to start if at end.
         if (currentClip == audioClips.Length) { currentClip = 0; }
@@ -45,6 +63,18 @@ public class BallForce : MonoBehaviour
         // Destroy circle if ball exited.
         if (collision.CompareTag("Exit"))
         {
+            // Spawns new balls, removes self.
+            if (spawnNewBalls) 
+            {
+                // Calls add balls method.
+                EscapeBalls addMoreBalls = transform.parent.GetComponent<EscapeBalls>();
+                addMoreBalls.SpawnNewBalls(this.gameObject);
+
+                // Removes self, ends method.
+                Destroy(this.gameObject);
+                return;
+            }
+
             Transform parent = collision.transform.parent.parent;
             int nextSiblingIndex = collision.transform.parent.GetSiblingIndex() + 1;
 
@@ -69,7 +99,7 @@ public class BallForce : MonoBehaviour
     // Called once on script initlization.
     void Awake()
     {
-        // Finds camera audio comp.
+        // Finds audio comp.
         audioSource = GetComponent<AudioSource>();
     }
 }

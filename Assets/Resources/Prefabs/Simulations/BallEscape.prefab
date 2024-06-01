@@ -755,6 +755,14 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2929901356816166916, guid: eb0168782c0795a4b8e524caa4f84598, type: 3}
+      propertyPath: increaseScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929901356816166916, guid: eb0168782c0795a4b8e524caa4f84598, type: 3}
+      propertyPath: spawnNewBalls
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929901356816166916, guid: eb0168782c0795a4b8e524caa4f84598, type: 3}
       propertyPath: audioClip.Array.size
       value: 2
       objectReference: {fileID: 0}

@@ -22,10 +22,11 @@ public class Settings : MonoBehaviour
     }
     
     /// <summary> method <c>AddASimulation</c> adds another simulation into the scene. </summary>
-    public void AddASimulation()
+    /// <param name="simName">name of the simulation, in resources</param>
+    public void AddASimulation(string simName)
     {
         // Instantiates new simulation.
-        Object newSimPrefab = Resources.Load("Prefabs/Simulations/BallEscape");
+        Object newSimPrefab = Resources.Load("Prefabs/Simulations/" + simName);
         GameObject newSim = Instantiate(newSimPrefab) as GameObject;
 
         // Adds sim to running simulations.
