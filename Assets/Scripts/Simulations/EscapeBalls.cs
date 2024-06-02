@@ -10,9 +10,9 @@ public class EscapeBalls : MonoBehaviour
     // Amount of balls spawned each call.
     [SerializeField] private int totalBallsSpawned;
 
-    /// <summary> method <c>SpawnNewBalls</c> spawns new balls at circle middle upon 1 ball exit. Also at increased size. </summary>
+    /// <summary> coroutine <c>SpawnNewBalls</c> spawns new balls at circle middle upon 1 ball exit. Also at increased size. </summary>
     /// <param name="escapedBall">Ball that exited scale.</param>
-    public void SpawnNewBalls(GameObject escapedBall)
+    public IEnumerator SpawnNewBalls(GameObject escapedBall)
     {
         // Loads ball as object from resources.
         Object ballPrefab = Resources.Load("Prefabs/Sprites/Ball");
@@ -29,8 +29,15 @@ public class EscapeBalls : MonoBehaviour
             newBall.GetComponent<BallForce>().AudioClips = escapedBall.GetComponent
                 <BallForce>().AudioClips;
 
+            // Set a random color.
+            SpriteRenderer sr = newBall.GetComponent<SpriteRenderer>();
+            sr.color = new Color(Random.value, Random.value, Random.value);
+
             // Allows more balls to spawned upon exit.
             newBall.GetComponent<BallForce>().SpawnNewBalls = true;
+
+            // Small gap between spawns.
+            yield return new WaitForEndOfFrame();
         }
     }
 }

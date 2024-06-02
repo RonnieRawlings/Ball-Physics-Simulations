@@ -37,10 +37,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7098237634486602666, guid: 3d18b03c91a551b438a67201b7cf1231, type: 3}
-      propertyPath: bounceForce
-      value: 2.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7098237634486602666, guid: 3d18b03c91a551b438a67201b7cf1231, type: 3}
       propertyPath: increaseScale
       value: 0
       objectReference: {fileID: 0}
@@ -52,6 +48,18 @@ PrefabInstance:
       propertyPath: audioClips.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7098237634486602666, guid: 3d18b03c91a551b438a67201b7cf1231, type: 3}
+      propertyPath: audioClips.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: a5b1dcaba6a4ac94b97f9ae7d9993088, type: 3}
+    - target: {fileID: 7098237634486602666, guid: 3d18b03c91a551b438a67201b7cf1231, type: 3}
+      propertyPath: audioClips.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 49ecc40e7602e9840b480fbc70ac4c2f, type: 3}
+    - target: {fileID: 7098237634486602666, guid: 3d18b03c91a551b438a67201b7cf1231, type: 3}
+      propertyPath: audioClips.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: f75632cac2a190f46887383f218ba2aa, type: 3}
     - target: {fileID: 7305980924368241624, guid: 3d18b03c91a551b438a67201b7cf1231, type: 3}
       propertyPath: m_RootOrder
       value: 3
