@@ -14,7 +14,7 @@ public class SoundSFX : MonoBehaviour
     [SerializeField] private AudioSource audioSource;
     
     /// <summary> method <c>SwitchOnClick</c> switches the current sprite to the other on button click. </summary>
-    public void SwitchOnClick()
+    public void SwitchOnClick(bool switchAll)
     {
         // Get image comp to access sprite.
         Image imageComp = GetComponent<Image>();
@@ -25,7 +25,21 @@ public class SoundSFX : MonoBehaviour
         else { imageComp.sprite = originalSprite; audioVolume = 1.0f; }
 
         // Changes audio state.
-        AdjustAudio(audioVolume);
+        if (switchAll) { AdjustAllAudio(audioVolume); }
+        else { AdjustAudio(audioVolume); }
+    }
+
+    public void AdjustAllAudio(float value)
+    {
+        // Finds parent, gets all audio sources.
+        Transform parentObj = transform.parent.parent;
+        AudioSource[] audioSources = parentObj.GetComponentsInChildren<AudioSource>();
+
+        // Updates audioSource volume to given value.
+        foreach (AudioSource audio in audioSources)
+        {
+            audio.volume = value;
+        }
     }
     
     /// <summary> method <c>AdjustAudio</c> changes the audio value depending on SFX state. </summary> 
