@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/S_SimSelect.unity
+    guid: 08d71ef856f18e04d90d95a399fbd2da
+  - enabled: 1
+    path: Assets/Scenes/S_SizeEscape.unity
+    guid: c6ef2bb52ec92f84bb28ce0cef508662
+  - enabled: 1
+    path: Assets/Scenes/S_EscapeMore.unity
+    guid: 27b780bf9d20cfb46bb51f399e3d3764
+  - enabled: 1
+    path: Assets/Scenes/S_WhoWillWin.unity
+    guid: 627b347236d24c74b82fb87eb21d50a8
   m_configObjects: {}
