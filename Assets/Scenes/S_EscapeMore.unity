@@ -521,10 +521,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4933017702994633963, guid: de1b04d0ad6989e47b42539deca3f7cb, type: 3}
-      propertyPath: totalBallsSpawned
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5994552612724457703, guid: de1b04d0ad6989e47b42539deca3f7cb, type: 3}
       propertyPath: m_Name
       value: MoreSpawnBigger

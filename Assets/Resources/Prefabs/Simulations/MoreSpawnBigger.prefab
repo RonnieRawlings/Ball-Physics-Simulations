@@ -133,6 +133,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 4933017702994633963}
   m_SourcePrefab: {fileID: 100100000, guid: 3d18b03c91a551b438a67201b7cf1231, type: 3}
+--- !u!114 &1173944274727876382 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3104248908435018821, guid: 3d18b03c91a551b438a67201b7cf1231, type: 3}
+  m_PrefabInstance: {fileID: 4277911630574773083}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5994552612724457703 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7525194062953915324, guid: 3d18b03c91a551b438a67201b7cf1231, type: 3}
@@ -151,3 +162,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalBallsSpawned: 3
+  audioSprite: {fileID: 1173944274727876382}

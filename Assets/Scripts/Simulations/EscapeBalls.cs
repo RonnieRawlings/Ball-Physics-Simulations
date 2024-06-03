@@ -4,11 +4,15 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EscapeBalls : MonoBehaviour
 {
     // Amount of balls spawned each call.
     [SerializeField] private int totalBallsSpawned;
+
+    // Current audio state.
+    [SerializeField] private Image audioSprite;
 
     /// <summary> coroutine <c>SpawnNewBalls</c> spawns new balls at circle middle upon 1 ball exit. Also at increased size. </summary>
     /// <param name="escapedBall">Ball that exited scale.</param>
@@ -35,6 +39,10 @@ public class EscapeBalls : MonoBehaviour
 
             // Allows more balls to spawned upon exit.
             newBall.GetComponent<BallForce>().SpawnNewBalls = true;
+
+            // Set start audio volume.
+            if (audioSprite.sprite.name == "SoundOff") { newBall.GetComponent<AudioSource>().
+                    volume = 0.0f; }
 
             // Small gap between spawns.
             yield return new WaitForSeconds(0.1f);
