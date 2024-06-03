@@ -32,7 +32,7 @@ public class BallForce : MonoBehaviour
     #endregion
 
     // Added force around a moving circle.
-    private float tangentialForce = 1f;
+    private float tangentialForce = 2f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -44,15 +44,14 @@ public class BallForce : MonoBehaviour
         Vector2 incomingDirection = rb.velocity.normalized;
         Vector2 reflectDirection = Vector2.Reflect(incomingDirection, collisionNormal);
 
-        // Calculate a random force change.
-        float bounceChange = Random.Range(0.9f, 1.5f);
+        float bounceChange = Random.Range(0.7f, 2f);
 
         // Add force in reflected direction.
         rb.AddForce(reflectDirection * bounceChange, ForceMode2D.Impulse);
 
         // Add tangential force.
         Vector2 tangentialDirection = Vector2.Perpendicular(collisionNormal);
-        rb.AddForce(tangentialDirection * tangentialForce, ForceMode2D.Impulse);
+        //rb.AddForce(tangentialDirection * (tangentialForce * bounceChange), ForceMode2D.Impulse);
 
         // Increase scale of obj.
         if (increaseScale) { IncreaseScale(); }
@@ -121,7 +120,7 @@ public class BallForce : MonoBehaviour
     }
 
     // Max velocity.
-    private float maxVelocity = 10f;
+    private float maxVelocity = 7f;
 
     void FixedUpdate()
     {

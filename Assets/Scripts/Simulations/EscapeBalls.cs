@@ -37,7 +37,7 @@ public class EscapeBalls : MonoBehaviour
             newBall.GetComponent<BallForce>().SpawnNewBalls = true;
 
             // Small gap between spawns.
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(0.1f);
         }
     }
 }
