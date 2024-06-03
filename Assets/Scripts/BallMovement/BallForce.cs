@@ -66,6 +66,9 @@ public class BallForce : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        // Collison is destroy, remove obj from scene.
+        if (collision.CompareTag("Destroy")) { Destroy(this.gameObject); return; }
+
         // Destroy circle if ball exited.
         if (collision.CompareTag("Exit"))
         {

@@ -521,6 +521,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 935059723501223142, guid: 80790eb3c4c9bf54984fcc0cc4e46cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1396354953112537483, guid: 80790eb3c4c9bf54984fcc0cc4e46cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1656449261048780218, guid: 80790eb3c4c9bf54984fcc0cc4e46cb7, type: 3}
       propertyPath: m_Name
       value: WhoWillWin
@@ -572,6 +580,22 @@ PrefabInstance:
     - target: {fileID: 2526296098792729773, guid: 80790eb3c4c9bf54984fcc0cc4e46cb7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 5432824496602558992, guid: 80790eb3c4c9bf54984fcc0cc4e46cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151204712753449948, guid: 80790eb3c4c9bf54984fcc0cc4e46cb7, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6151204712753449948, guid: 80790eb3c4c9bf54984fcc0cc4e46cb7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975183576699377026, guid: 80790eb3c4c9bf54984fcc0cc4e46cb7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
